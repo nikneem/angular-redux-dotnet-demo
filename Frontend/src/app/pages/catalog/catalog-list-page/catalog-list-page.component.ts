@@ -39,7 +39,8 @@ export class CatalogListPageComponent implements OnInit, OnDestroy {
         'size',
         'inStock',
         'deliveryDays',
-        'price'
+        'price',
+        'actions'
     ];
 
     constructor(
@@ -68,10 +69,6 @@ export class CatalogListPageComponent implements OnInit, OnDestroy {
             new ListFilterValueDto({ field: 'inch', value: inch })
         );
         this.store.dispatch(new CatalogInit(filter));
-    }
-
-    select(catalogId: string) {
-        this.store.dispatch(new CatalogSelect(catalogId));
     }
 
     delete(name: string, catalogId: string) {

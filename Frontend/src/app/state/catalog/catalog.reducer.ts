@@ -18,19 +18,6 @@ export function CatalogReducer(state: CatalogState, action: any) {
         switch (action.type) {
             case catalogActions.init:
                 return { ...state, listFilter: action.filter };
-            case catalogActions.select:
-                return {
-                    ...state,
-                    selectedEmployeeId: action.employeeId,
-                    isLoading: true
-                };
-            case catalogActions.selectComplete:
-                return {
-                    ...state,
-                    selectedEmployee: action.employee,
-                    isLoading: false
-                };
-
             case catalogActions.setFilter:
                 return setFilterHandler(state, action);
             case catalogActions.list:
@@ -101,7 +88,7 @@ function deleteCompleteHandler(
     >;
     if (catalogsList) {
         const catalog = _.find(catalogsList, {
-            employeeId: action.employeeId
+            id: action.itemId
         });
         if (catalog) {
             const itemIndex = catalogsList.indexOf(catalog);
@@ -111,5 +98,6 @@ function deleteCompleteHandler(
         }
     }
     targetState.listItems = catalogsList;
+    targetState.isLoading = false;
     return targetState;
 }

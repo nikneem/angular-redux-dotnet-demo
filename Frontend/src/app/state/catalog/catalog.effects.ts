@@ -5,7 +5,9 @@ import {
     catalogActions,
     CatalogList,
     CatalogListComplete,
-    CatalogFailure
+    CatalogFailure,
+    CatalogDelete,
+    CatalogDeleteComplete
 } from './catalog.actions';
 import { Observable, of } from 'rxjs';
 import { Action } from '@ngrx/store';
@@ -32,32 +34,15 @@ export class CatalogEffects {
         )
     );
 
-    // @Effect()
-    // select$: Observable<Action> = this.actions$.pipe(
-    //     ofType<EmployeesSelect>(employeesActions.select),
-    //     debounceTime(300),
-    //     switchMap(action =>
-    //         this.catalogService.details(action.employeeId).pipe(
-    //             map(resp => new EmployeesSelectComplete(resp)),
-    //             tap(act =>
-    //                 this.router.navigate([
-    //                     `/employees/details/${action.employeeId}`
-    //                 ])
-    //             ),
-    //             catchError(error => of(new EmployeesFailure(error)))
-    //         )
-    //     )
-    // );
-
-    // @Effect()
-    // delete$: Observable<Action> = this.actions$.pipe(
-    //     ofType<EmployeeDelete>(employeesActions.delete),
-    //     debounceTime(300),
-    //     switchMap(action =>
-    //         this.catalogService.delete(action.employeeId).pipe(
-    //             map(resp => new EmployeeDeleteComplete(action.employeeId)),
-    //             catchError(error => of(new EmployeesFailure(error)))
-    //         )
-    //     )
-    // );
+    @Effect()
+    delete$: Observable<Action> = this.actions$.pipe(
+        ofType<CatalogDelete>(catalogActions.delete),
+        debounceTime(300),
+        switchMap(action =>
+            this.catalogService.delete(action.itemId).pipe(
+                map(resp => new CatalogDeleteComplete(action.itemId)),
+                catchError(error => of(new CatalogFailure(error)))
+            )
+        )
+    );
 }

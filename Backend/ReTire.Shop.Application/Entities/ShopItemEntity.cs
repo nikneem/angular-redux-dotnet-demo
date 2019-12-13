@@ -16,6 +16,6 @@ namespace ReTire.Shop.Application.Entities
         public string FuelConsumption { get; set; }
         public string NoiseLevel { get; set; }
         public int InStock { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
     }
 }

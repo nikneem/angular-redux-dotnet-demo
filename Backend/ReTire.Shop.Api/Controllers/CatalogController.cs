@@ -23,6 +23,14 @@ namespace ReTire.Shop.Api.Controllers
             return Ok(models);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(
+            string id)
+        {
+            var models = await _service.Delete(id);
+            return Ok(models);
+        }
+
 
         [HttpGet("import")]
         public async Task<IActionResult> Import()

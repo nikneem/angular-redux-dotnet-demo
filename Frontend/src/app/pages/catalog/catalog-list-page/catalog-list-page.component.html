@@ -37,7 +37,7 @@
                 </ng-container>
                 <ng-container cdkColumnDef="size">
                     <mat-header-cell class="flex-small" *cdkHeaderCellDef>
-                        size
+                        Size
                     </mat-header-cell>
                     <mat-cell class="flex-small" *cdkCellDef="let row">
                         {{ row.size }}
@@ -45,7 +45,7 @@
                 </ng-container>
                 <ng-container cdkColumnDef="inStock">
                     <mat-header-cell class="flex-small" *cdkHeaderCellDef>
-                        inStock
+                        In Stock
                     </mat-header-cell>
                     <mat-cell class="flex-small" *cdkCellDef="let row">
                         {{ row.inStock }}
@@ -53,7 +53,7 @@
                 </ng-container>
                 <ng-container cdkColumnDef="deliveryDays">
                     <mat-header-cell class="flex-small" *cdkHeaderCellDef>
-                        deliveryDays
+                        Delivery Days
                     </mat-header-cell>
                     <mat-cell class="flex-small" *cdkCellDef="let row">
                         {{ row.deliveryDays }}
@@ -61,10 +61,22 @@
                 </ng-container>
                 <ng-container cdkColumnDef="price">
                     <mat-header-cell class="flex-small" *cdkHeaderCellDef>
-                        price
+                        Price
                     </mat-header-cell>
                     <mat-cell class="flex-small" *cdkCellDef="let row">
                         {{ row.price | currency: 'EUR' }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="actions">
+                    <mat-header-cell class="flex-small" *cdkHeaderCellDef>
+                        Actions
+                    </mat-header-cell>
+                    <mat-cell class="flex-small" *cdkCellDef="let row">
+                        <mat-icon
+                            (click)="delete(row.name, row.id)"
+                            class="delete-button"
+                            >delete</mat-icon
+                        >
                     </mat-cell>
                 </ng-container>
 

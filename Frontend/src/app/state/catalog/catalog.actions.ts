@@ -46,11 +46,11 @@ export class CatalogListComplete implements Action {
 
 export class CatalogDelete implements Action {
     readonly type = catalogActions.delete;
-    constructor(public employeeId: string) {}
+    constructor(public itemId: string) {}
 }
 export class CatalogDeleteComplete implements Action {
     readonly type = catalogActions.deleteComplete;
-    constructor(public employeeId: string) {}
+    constructor(public itemId: string) {}
 }
 
 export class CatalogFailure implements Action {

@@ -8,7 +8,7 @@
         public string Type { get; set; }
         public string Size { get; set; }
         public int InStock { get; set; }
-        public int DeliveryDays => InStock >= 0 ? 1 : 5;
+        public int DeliveryDays => InStock >= 1 ? 1 : 5;
         public decimal Price { get; set; }
     }
 }

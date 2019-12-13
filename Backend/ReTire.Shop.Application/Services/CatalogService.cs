@@ -90,7 +90,7 @@ namespace ReTire.Shop.Application.Services
                 Type = ent.Type,
                 Id = ent.RowKey,
                 Name = ent.Name,
-                Price = ent.Price,
+                Price = decimal.Parse(ent.Price),
                 Size = $"{ent.Width}/{ent.Height}/{ent.Inch}"
             }).OrderBy(dto => dto.Name).ToList();
         }
@@ -176,11 +176,12 @@ namespace ReTire.Shop.Application.Services
             var entity = new ShopItemEntity
             {
                 PartitionKey = PartitionKeys.Tires,
-                RowKey = id
+                RowKey = id,
+                ETag = "*"
             };
 
-            var findTo = TableOperation.Delete(entity);
-            await _table.ExecuteAsync(findTo);
+                var findTo = TableOperation.Delete(entity);
+                await _table.ExecuteAsync(findTo);
             return true;
         }
 
@@ -218,7 +219,7 @@ namespace ReTire.Shop.Application.Services
                                 FuelConsumption = parts[7],
                                 NoiseLevel = parts[8],
                                 InStock = int.Parse(parts[9]),
-                                Price = decimal.Parse(parts[10])
+                                Price = parts[10]
                             };
                             batch.Add(TableOperation.Insert(sid));
                             if (batch.Count == 100)

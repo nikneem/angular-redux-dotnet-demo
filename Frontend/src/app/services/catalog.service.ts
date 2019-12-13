@@ -27,10 +27,7 @@ export class CatalogService {
         const url = `${this.backendUrl}/api/catalog${qs}`;
         return this.http.get<Array<CatalogListItemDto>>(url);
     }
-    public details(id: string): Observable<CatalogDetailsDto> {
-        const url = `${this.backendUrl}/api/catalog/${id}`;
-        return this.http.get<CatalogDetailsDto>(url);
-    }
+
     public delete(id: string): Observable<boolean> {
         const url = `${this.backendUrl}/api/catalog/${id}`;
         return this.http.delete<boolean>(url);
