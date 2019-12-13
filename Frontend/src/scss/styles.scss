@@ -1,0 +1,240 @@
+@import 'variables.scss';
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+span.link {
+    color: $primary;
+    text-decoration: none;
+    cursor: pointer;
+}
+span.link:hover {
+    color: $accent;
+    text-decoration: underline;
+}
+
+.mat-table {
+    .flex-small {
+        flex: 1 1;
+    }
+    .flex-medium {
+        flex: 2 2;
+    }
+    .flex-large {
+        flex: 3 3;
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+.half-width {
+    width: 50%;
+}
+.quarter-width {
+    width: 25%;
+}
+.three-quarter-width {
+    width: calc(75% - 1rem);
+    padding-right: 1rem;
+}
+
+.filter-list-container {
+    display: flex;
+    flex-flow: row;
+    .filter {
+        flex: 1 1 20%;
+    }
+    .list {
+        flex: 4 4 80%;
+    }
+}
+
+.full-page-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .full-page-frame {
+        width: 80%;
+    }
+}
+
+.details-properties-page-container {
+    display: flex;
+    flex-flow: column;
+
+    .details {
+        flex: 1 1;
+    }
+    .properties {
+        padding-top: 1rem;
+        flex: 1 1;
+    }
+}
+
+.mat-card {
+    .mat-card-actions {
+        text-align: right;
+    }
+}
+
+.mat-drawer-container {
+    height: 100%;
+    .mat-drawer {
+        width: 64px;
+        .mat-toolbar-single-row {
+            padding: 0;
+            justify-content: center;
+        }
+        .mat-nav-list {
+            h4 {
+                display: none;
+            }
+        }
+    }
+    .mat-drawer-content {
+        .main-page-container {
+            padding: 1rem;
+            .mat-toolbar {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+    .system-title {
+        margin-left: 1rem;
+        display: none;
+    }
+}
+
+.mat-toolbar {
+    .toolbar-spacer {
+        flex: 1 1 auto;
+    }
+    .mat-flat-button {
+        margin-left: 1rem;
+    }
+}
+
+.mat-drawer-collapsed {
+    .mat-drawer {
+        width: 64px;
+        .mat-nav-list {
+            h4 {
+                display: none;
+            }
+        }
+    }
+}
+
+.page-content {
+    .split-panel-container {
+        display: flex;
+        flex-flow: column;
+        .split-panel {
+            flex: 1 1 50%;
+            padding: 0;
+        }
+    }
+    .info-details-container {
+        display: flex;
+        flex-flow: row;
+        .info {
+            flex: 2 2 66%;
+        }
+        .details {
+            flex: 1 1 34%;
+        }
+    }
+}
+.progress-indicator-container {
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+@media only screen and (min-width: 1024px) {
+    .full-page-container {
+        .full-page-frame {
+            width: 60%;
+        }
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .full-page-container {
+        .full-page-frame {
+            width: 40%;
+        }
+    }
+    .page-content {
+        .split-panel-container {
+            display: flex;
+            flex-flow: row;
+            .split-panel {
+                padding: 1rem;
+            }
+        }
+    }
+
+    .mat-drawer-container {
+        .mat-drawer {
+            width: 264px;
+            .mat-toolbar-single-row {
+                padding: 0 16px;
+                justify-content: flex-start;
+            }
+            .mat-nav-list {
+                h4 {
+                    display: inline-block;
+                }
+            }
+        }
+        .system-title {
+            display: inline-block;
+        }
+    }
+    .mat-drawer-collapsed {
+        .mat-drawer {
+            width: 64px;
+            .mat-nav-list {
+                h4 {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1400px) {
+    .full-page-container {
+        .full-page-frame {
+            width: 20%;
+        }
+    }
+    .details-properties-page-container {
+        flex-flow: row;
+
+        .details {
+            flex: 3 3 75%;
+            padding-right: 0.5rem;
+        }
+        .properties {
+            flex: 1 1 25%;
+            padding-top: 0;
+            padding-left: 0.5rem;
+        }
+    }
+}

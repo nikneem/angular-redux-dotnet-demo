@@ -1,0 +1,10 @@
+@import '../../../../scss/variables.scss';
+.mat-nav-list {
+    .mat-list-item {
+        color: $primary;
+    }
+    .active {
+        background: $accent;
+        color: #fff;
+    }
+}

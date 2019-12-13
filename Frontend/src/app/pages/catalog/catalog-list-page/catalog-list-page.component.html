@@ -1,0 +1,84 @@
+<app-catalog-list-toolbar></app-catalog-list-toolbar>
+<div class="filter-list-container">
+    <div class="list">
+        <div *ngIf="list">
+            <mat-table [dataSource]="list">
+                <ng-container cdkColumnDef="id">
+                    <mat-header-cell class="flex-large" *cdkHeaderCellDef
+                        >ID</mat-header-cell
+                    >
+                    <mat-cell class="flex-large" *cdkCellDef="let row">
+                        {{ row.id }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="name">
+                    <mat-header-cell class="flex-medium" *cdkHeaderCellDef
+                        >Name</mat-header-cell
+                    >
+                    <mat-cell class="flex-medium" *cdkCellDef="let row">
+                        {{ row.name }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="brand">
+                    <mat-header-cell class="flex-medium" *cdkHeaderCellDef>
+                        Brand</mat-header-cell
+                    >
+                    <mat-cell class="flex-medium" *cdkCellDef="let row">
+                        {{ row.brand }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="type">
+                    <mat-header-cell class="flex-medium" *cdkHeaderCellDef>
+                        Type
+                    </mat-header-cell>
+                    <mat-cell class="flex-medium" *cdkCellDef="let row">
+                        {{ row.type }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="size">
+                    <mat-header-cell class="flex-small" *cdkHeaderCellDef>
+                        size
+                    </mat-header-cell>
+                    <mat-cell class="flex-small" *cdkCellDef="let row">
+                        {{ row.size }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="inStock">
+                    <mat-header-cell class="flex-small" *cdkHeaderCellDef>
+                        inStock
+                    </mat-header-cell>
+                    <mat-cell class="flex-small" *cdkCellDef="let row">
+                        {{ row.inStock }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="deliveryDays">
+                    <mat-header-cell class="flex-small" *cdkHeaderCellDef>
+                        deliveryDays
+                    </mat-header-cell>
+                    <mat-cell class="flex-small" *cdkCellDef="let row">
+                        {{ row.deliveryDays }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="price">
+                    <mat-header-cell class="flex-small" *cdkHeaderCellDef>
+                        price
+                    </mat-header-cell>
+                    <mat-cell class="flex-small" *cdkCellDef="let row">
+                        {{ row.price | currency: 'EUR' }}
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row
+                    *cdkHeaderRowDef="displayedColumns"
+                ></mat-header-row>
+                <mat-row
+                    *cdkRowDef="let row; columns: displayedColumns"
+                ></mat-row>
+            </mat-table>
+        </div>
+    </div>
+    <div class="filter">
+        <app-catalog-list-filters></app-catalog-list-filters>
+    </div>
+</div>
+<app-progress-indicator *ngIf="isLoading"></app-progress-indicator>

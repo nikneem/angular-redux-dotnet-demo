@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div class="system-title">
+            ReTire Tire Fitters & Car Components
+        </div>
+        <span class="toolbar-spacer"></span>
+        <button mat-icon-button matBadge="8" matBadgeColor="accent">
+            <mat-icon>notifications</mat-icon>
+        </button>
+        <div class="user-profile" *ngIf="userProfile">
+            <div
+                class="user-profile-image"
+                *ngIf="userProfile.picture"
+                [matMenuTriggerFor]="userProfileMenu"
+                [ngStyle]="{
+                    'background-image': 'url(' + userProfile.picture + ')'
+                }"
+            ></div>
+            <button mat-mini-fab color="primary" *ngIf="!userProfile.picture">
+                {{ abbreviation }}
+            </button>
+            <mat-menu #userProfileMenu="matMenu">
+                <button mat-menu-item>Settings</button>
+                <button mat-menu-item (click)="logoff()">Logoff</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

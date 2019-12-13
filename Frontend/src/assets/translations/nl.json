@@ -1,0 +1,38 @@
+{
+    "Navigation": {
+        "Employees": "Employees"
+    },
+    "Login": {
+        "Username": "Username",
+        "Password": "Password",
+        "SSO": "SSO",
+        "Login": "Login",
+        "RestorePassword": "Recover password"
+    },
+    "Employees": {
+        "List": "Employees list",
+        "CreateNew": "Create new",
+        "Synchronize": "Synchronize",
+        "Upload": "Upload",
+        "UploadSpecs": "Upload specifications",
+        "SearchPlaceholder": "Search employees",
+        "EmployeeId": "Id",
+        "FirstName": "FirstName",
+        "LastName": "LastName",
+        "DisplayName": "Display name",
+        "Gender": "Gender",
+        "Email": "Email",
+        "Phone": "Phone",
+        "MobilePhone": "Mobile phone",
+        "Qualifications": "Qualifications",
+        "BackgroundCheckUntil": "Background check",
+        "AirportCardUntil": "Airport card",
+        "Male": "Male",
+        "Female": "Female"
+    },
+    "Common": {
+        "Loading": "One moment...",
+        "DeleteConfirmationTitle": "Delete confirmation",
+        "DeleteConfirmationText": "Are you sure you wish to delete '{{name}}' from this system?"
+    }
+}

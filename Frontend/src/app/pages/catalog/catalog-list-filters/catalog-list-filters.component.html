@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-title>Filters</mat-card-title>
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <input
+                matInput
+                placeholder="Brand"
+                (keyup.enter)="onBrandChanged($event)"
+                [(ngModel)]="brand"
+            />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input
+                matInput
+                placeholder="Type"
+                (keyup.enter)="onTypeChanged($event)"
+                [(ngModel)]="type"
+            />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input
+                matInput
+                placeholder="Width"
+                (keyup.enter)="onWidthChanged($event)"
+                [(ngModel)]="width"
+            />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input
+                matInput
+                placeholder="Height"
+                (keyup.enter)="onHeightChanged($event)"
+                [(ngModel)]="height"
+            />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input
+                matInput
+                placeholder="Inch"
+                (keyup.enter)="onInchChanged($event)"
+                [(ngModel)]="inch"
+            />
+        </mat-form-field>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,19 @@
+<mat-drawer-container
+    [ngClass]="navigationCollapsed ? 'mat-drawer-collapsed' : null"
+    autosize
+>
+    <mat-drawer mode="side" opened>
+        <mat-toolbar color="primary">
+            <button (click)="toggleNavigation()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <app-admin-navigation> </app-admin-navigation>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-admin-header></app-admin-header>
+        <div class="main-page-container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
