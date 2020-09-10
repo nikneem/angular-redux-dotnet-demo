@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
     selector: 'app-login-page',
@@ -9,10 +8,10 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 })
 export class LoginPageComponent implements OnInit {
     loginForm: FormGroup;
-    constructor(private oidc: OidcSecurityService) {}
+    constructor() {}
 
     private login() {
-        this.oidc.authorize();
+        //this.oidc.authorize();
     }
 
     initForm() {
@@ -24,6 +23,6 @@ export class LoginPageComponent implements OnInit {
 
     ngOnInit() {
         this.initForm();
-        this.login();
+        //this.login();
     }
 }

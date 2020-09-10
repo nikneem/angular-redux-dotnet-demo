@@ -9,7 +9,6 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
