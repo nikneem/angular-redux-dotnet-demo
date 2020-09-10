@@ -9,7 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeModule } from '@pages/home/home.module';
 import { FullPageTemplateModule } from '@templates/full-page-template/full-page-template.module';
 import { AdminTemplateModule } from '@templates/admin-template/admin-template.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,7 +44,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         FullPageTemplateModule,
         AdminTemplateModule,
         BrowserAnimationsModule,
-        HomeModule,
         CatalogModule,
         StoreModule.forRoot(reducers, {
             metaReducers,
