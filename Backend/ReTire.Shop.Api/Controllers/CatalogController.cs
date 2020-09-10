@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ReTire.Shop.Application.Contracts.Services;
+using ReTire.Shop.Application.Repositories;
 
 namespace ReTire.Shop.Api.Controllers
 {
@@ -8,10 +8,10 @@ namespace ReTire.Shop.Api.Controllers
     [ApiController]
     public class CatalogController : ControllerBase
     {
-        private readonly ICatalogService _service;
+        private readonly TiresRepository _repository;
 
         [HttpGet]
-        public async Task<IActionResult> Get(
+        public IActionResult Get(
             string query= null,
             string brand = null,
             string type = null, 
@@ -19,31 +19,24 @@ namespace ReTire.Shop.Api.Controllers
             int? height = null, 
             string inch = null)
         {
-            var models = await _service.List(query, brand, type, width, height, inch);
+            var models =  _repository.List(query, brand, type, width, height, inch);
             return Ok(models);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(
+        public IActionResult Delete(
             string id)
         {
-            var models = await _service.Delete(id);
-            return Ok(models);
-        }
-
-
-        [HttpGet("import")]
-        public async Task<IActionResult> Import()
-        {
-            var model = await _service.Import();
-            return Ok(model);
+            bool result =  _repository.Delete(id);
+            return Ok(result);
         }
 
 
 
-        public CatalogController(ICatalogService service)
+
+        public CatalogController(TiresRepository repository)
         {
-            _service = service;
+            _repository = repository;
         }
 
     }

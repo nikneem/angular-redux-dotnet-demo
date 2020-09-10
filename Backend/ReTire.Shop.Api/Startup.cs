@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ReTire.Shop.Application.Contracts.Services;
-using ReTire.Shop.Application.Services;
+using ReTire.Shop.Application.Repositories;
 
 namespace ReTire.Shop.Api
 {
@@ -23,7 +22,7 @@ namespace ReTire.Shop.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ICatalogService, CatalogService>();
+            services.AddSingleton<TiresRepository>();
 
             services.AddControllers();
             services.AddCors(options =>
@@ -46,15 +45,10 @@ namespace ReTire.Shop.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
             app.UseCors(corsPolicyName);
-
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

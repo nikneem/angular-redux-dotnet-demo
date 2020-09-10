@@ -1,10 +1,10 @@
-﻿using Microsoft.Azure.Cosmos.Table;
+﻿using System;
 
 namespace ReTire.Shop.Application.Entities
 {
-    public sealed class ShopItemEntity : TableEntity
+    public sealed class ShopItemEntity
     {
-
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
         public string Type { get; set; }
@@ -16,6 +16,6 @@ namespace ReTire.Shop.Application.Entities
         public string FuelConsumption { get; set; }
         public string NoiseLevel { get; set; }
         public int InStock { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
     }
 }
